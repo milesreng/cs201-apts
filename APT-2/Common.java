@@ -3,16 +3,17 @@ import java.util.*;
 public class Common {
 
     public int count(String a, String b) {
-        HashSet<String> common = new HashSet<>();
         List<String> aList = Arrays.asList(a.split(""));
         List<String> bList = Arrays.asList(b.split(""));
+        int total = 0;
 
         for (String s : aList) {
             if (bList.contains(s)) {
-                common.add(s);
+                total++;
+                bList.remove(bList.indexOf(s));
             }
         }
-        return common.size();
+        return total;
     }
     
 }
