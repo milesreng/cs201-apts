@@ -10,7 +10,7 @@ public class Common {
         for (String s : aList) {
             if (bList.contains(s)) {
                 total++;
-                bList.remove(bList.indexOf(s));
+                bList.set(bList.indexOf(s), "");
             }
         }
         return total;
