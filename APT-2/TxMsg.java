@@ -25,10 +25,5 @@ public class TxMsg {
         }
         return String.join(" ", wordList);
     }
-
-    public static void main(String[] args) {
-        String str = "text message";
-        System.out.println(getMessage(str));
-    }
     
 }
