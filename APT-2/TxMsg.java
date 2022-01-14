@@ -1,6 +1,6 @@
 public class TxMsg {
 
-    public static String getMessage(String original) {
+    public String getMessage(String original) {
         String[] wordList = original.split(" ");
         int i;
         String abbr;
