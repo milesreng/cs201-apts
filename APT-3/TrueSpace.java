@@ -1,23 +1,23 @@
 public class TrueSpace {
 
     public long calculateSpace(int[] sizes, int clusterSize) {
-        long clusters;
+        int clusters;
+        long longClusters;
 
         long totalClusters = 0;
         for (int i = 0; i < sizes.length; i++) {
             if (sizes[i] != 0) {
                 clusters = (sizes[i] / clusterSize);
                 if (sizes[i] % clusterSize != 0) {
-                    totalClusters += clusters + 1;
+                    longClusters = clusters + 1L;
                 } else {
-                    totalClusters += clusters;
+                    longClusters = clusters;
                 }
+                totalClusters += longClusters;
             }
         }
 
-        long total = totalClusters * clusterSize;
-
-        return total;
+        return totalClusters * clusterSize;
 
     }
     
