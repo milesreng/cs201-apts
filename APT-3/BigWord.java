@@ -3,20 +3,28 @@ import java.util.*;
 public class BigWord {
 
     public String most(String[] sentences) {
-        ArrayList<String> unique = new ArrayList<String>();
-        ArrayList<Integer> count = new ArrayList<Integer>();
+        // Use a HashMap
+        HashMap<String, Integer> uniqueMap = new HashMap<String, Integer>();
         for (int i = 0; i < sentences.length; i++) {
             String[] words = sentences[i].split(" ");
+
             for (int j = 0; j < words.length; j++) {
-                if (!unique.contains(words[j].toLowerCase())) {
-                    unique.add(words[j].toLowerCase());
-                    count.add(0);
-                }
-                count.set(unique.indexOf(words[j]), count.get(unique.indexOf(words[j])) + 1);
+                String word = words[j].toLowerCase();
+                uniqueMap.putIfAbsent(word, 0);
+                uniqueMap.put(word, uniqueMap.get(word) + 1);
             }
         }
 
-        return unique.get(count.indexOf(Collections.max(count)));
+        Map.Entry<String, Integer> mostFrequent = null;
+        int count = 0;
+        for (Map.Entry<String, Integer> entry : uniqueMap.entrySet()) {
+            if (mostFrequent == null || entry.getValue().compareTo(mostFrequent.getValue()) > count) {
+                mostFrequent = entry;
+                count = mostFrequent.getValue();
+            }
+        }
+
+        return mostFrequent.getKey();
     }
     
 }
