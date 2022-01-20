@@ -16,11 +16,9 @@ public class BigWord {
         }
 
         Map.Entry<String, Integer> mostFrequent = null;
-        int count = 0;
         for (Map.Entry<String, Integer> entry : uniqueMap.entrySet()) {
-            if (mostFrequent == null || entry.getValue().compareTo(mostFrequent.getValue()) > count) {
+            if (mostFrequent == null || entry.getValue().compareTo(mostFrequent.getValue()) > 0) {
                 mostFrequent = entry;
-                count = mostFrequent.getValue();
             }
         }
 
