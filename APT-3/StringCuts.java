@@ -9,10 +9,7 @@ public class StringCuts {
                 unique.add(list[i]);
             }
         }
-        String[] uniqueWords = new String[unique.size()];
-        for (int i = 0; i < uniqueWords.length; i++) {
-            uniqueWords[i] = unique.get(i);
-        }
+        String[] uniqueWords = unique.toArray(new String[0]);
 
         return uniqueWords;
     }
