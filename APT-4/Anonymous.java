@@ -4,11 +4,11 @@ import java.lang.*;
 public class Anonymous {
     public int howMany(String[] headlines, String[] messages) {
         ArrayList<Character> chars = new ArrayList<Character>();
+        
         for (String headline : headlines) {
             for (int i = 0; i < headline.length(); i++) {
-                if (!headline.substring(i, i + 1).equals(" ")) {
+                if (headline.charAt(i) != ' ') {
                     chars.add(Character.toLowerCase(headline.charAt(i)));
-                    System.out.print(headline.substring(i, i + 1).toLowerCase());
                 }
             }
         }
@@ -16,17 +16,17 @@ public class Anonymous {
         int count = 0;
         for (String message : messages) {
             Boolean hasChars = true;
-            ArrayList<Character> availChars = chars;
+            ArrayList<Character> availChars = new ArrayList<Character>();
+            availChars.addAll(chars);
 
-            message = message.toLowerCase();
-            System.out.println("\n" + message);
             for (int i = 0; i < message.length(); i++) {
-                Character mess = Character.toLowerCase(message.charAt(i));
-                if (!mess.equals(' ')) {
-                    if (!availChars.contains(mess)) {
-                        hasChars = false;
+                if (message.charAt(i) != ' ') {
+                    Character currChar = Character.toLowerCase(message.charAt(i));
+                    if (availChars.contains(currChar)) {
+                        availChars.remove(availChars.indexOf(currChar));
                     } else {
-                        availChars.remove(availChars.indexOf(mess));
+                        hasChars = false;
+                        break;
                     }
                 }
             }
@@ -34,13 +34,7 @@ public class Anonymous {
                 count++;
             }
         }
-        return count;
-    }
 
-    public static void main(String[] args) {
-        Anonymous a = new Anonymous();
-        String[] hl = {"Earthquake in San Francisco ", " Burglary at musuem in Sweden ", " Poverty "};
-        String[] m = {"Give me my money back ", " I am the best coder ", " TOPCODER "};
-        System.out.print(a.howMany(hl, m));
+        return count;
     }
 }
