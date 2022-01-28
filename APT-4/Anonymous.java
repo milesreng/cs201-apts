@@ -1,5 +1,4 @@
 import java.util.*;
-import java.lang.*;
 
 public class Anonymous {
     public int howMany(String[] headlines, String[] messages) {
