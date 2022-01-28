@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Anonymous {
     public int howMany(String[] headlines, String[] messages) {
         int[] hlCounts = getCounts(headlines);
