@@ -41,7 +41,6 @@ public class Thesaurus {
                     newList.add(set);
                 } else {
                     newList.add(list.get(i));
-                    newList.add(set2);
                 }
             }
         }
