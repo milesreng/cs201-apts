@@ -7,6 +7,7 @@ public class Thesaurus {
         while (true) {
             int size = list.size();
             list = combine(list);
+            System.out.println(list.toString());
             if (list.size() == size) {
                 break;
             }
@@ -36,14 +37,24 @@ public class Thesaurus {
             for (int j = i + 1; j < list.size(); j++) {
                 TreeSet<String> set = new TreeSet<String>(list.get(i));
                 TreeSet<String> set2 = new TreeSet<String>(list.get(j));
+                System.out.println(set.toString() + " - " + set2.toString());
                 set.addAll(set2);
                 if (set.size() <= list.get(i).size() + set2.size() - 2) {
+                    System.out.println(set.toString());
                     newList.add(set);
+                    break;
                 } else {
+                    System.out.println(" not similar");
                     newList.add(list.get(i));
                 }
             }
         }
         return newList;
+    }
+
+    public static void main(String[] args) {
+        Thesaurus t = new Thesaurus();
+        String[] l = {"ape monkey wrench", "wrench twist strain", "monkey twist frugue strain"};
+        System.out.print(String.join(" - ", t.edit(l)));
     }
 }
