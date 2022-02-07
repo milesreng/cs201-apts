@@ -6,10 +6,8 @@ public class Thesaurus {
 
         while (true) {
             int size = list.size();
-            System.out.println("set size before is " + list.size());
             list = combine(list);
             System.out.print(list.toString());
-            System.out.println("set size after is " + list.size());
             if (list.size() == size) {
                 break;
             }
@@ -27,6 +25,7 @@ public class Thesaurus {
             finRet[i] = r;
             i++;
         }
+        Arrays.sort(finRet);
 
         return finRet;
     }
@@ -52,13 +51,10 @@ public class Thesaurus {
                     TreeSet<String> set = new TreeSet<>();
                     set.addAll(list.get(i));
                     TreeSet<String> set2 = list.get(j);
-                    System.out.print(set.toString() + " + " + set2.toString());
                     
                     set.addAll(set2);
-                    System.out.println(" = " + set.toString());
                     
                     if (set.size() <= (list.get(i).size() + set2.size() - 2)) {
-                        System.out.println(set.toString() + " -> similar");
                         foundSimilar = true;
                         newList.add(set);
                         similar = j;
@@ -68,17 +64,10 @@ public class Thesaurus {
                 if (!foundSimilar) {
                     newList.add(list.get(i));
                 }
-                System.out.println("set is " + newList.toString());
             } else if (i != similar) {
                 newList.add(list.get(i));
             }
         }
         return newList;
-    }
-
-    public static void main(String[] args) {
-        Thesaurus t = new Thesaurus();
-        String[] l = {"ape monkey wrench", "wrench twist strain", "monkey twist frugue strain"};
-        System.out.print(String.join(" - ", t.edit(l)));
     }
 }
