@@ -1,12 +1,12 @@
 package resources;
 
 public class ListNode {
-    int info;
-    ListNode next;
-    ListNode(int x){
+    public int info;
+    public ListNode next;
+    public ListNode(int x){
         info = x;
     }
-    ListNode(int x, ListNode node){
+    public ListNode(int x, ListNode node){
         info = x;
 	next = node;
     }
