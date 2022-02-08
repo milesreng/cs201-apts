@@ -10,6 +10,7 @@ public class AlphaLength {
 
         for (int i = words.length - 2; i >= 0; i--) {
             if (!unique.contains(words[i])) {
+                unique.add(words[i]);
                 currNode = new ListNode(words[i].length());
                 currNode.next = lastNode;
                 lastNode = currNode;
