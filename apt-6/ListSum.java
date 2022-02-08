@@ -5,7 +5,7 @@ public class ListSum {
             s += list.info;
         }
         ListNode currNode = list;
-        while (currNode.next != null) {
+        while (currNode != null && currNode.next != null) {
             currNode = currNode.next;
             if (currNode.info > thresh) {
                 s += currNode.info;
