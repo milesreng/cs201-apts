@@ -1,4 +1,5 @@
 import java.util.*;
+import resources.ListNode;
 
 public class AlphaLength {
     public ListNode create(String[] words) {

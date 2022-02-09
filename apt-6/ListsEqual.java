@@ -1,3 +1,5 @@
+import resources.ListNode;
+
 public class ListsEqual {
     public int equal(ListNode a1, ListNode a2) {
         if (a1 == null && a2 == null) {
