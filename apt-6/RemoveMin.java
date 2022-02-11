@@ -19,26 +19,8 @@ public class RemoveMin {
         if (minVal == list.info) {
             return list.next;
         } else {
-            preMin.next = currNode.next;
+            preMin.next = preMin.next.next;
             return list;
-        }
-    }
-
-    public static void main(String[] args) {
-        RemoveMin r = new RemoveMin();
-        int[] nums = {2, 1, 4, 9, 6, 7, 8};
-        ListNode currNode = new ListNode(3);
-        
-        for (int n : nums) {
-            ListNode lastNode = currNode;
-            currNode = new ListNode(n, lastNode);
-            System.out.println(currNode.info + " -> " + currNode.next.info);
-        }
-
-        ListNode newFirst = r.remove(currNode);
-        while (newFirst.next != null) {
-            System.out.println(newFirst.info);
-            newFirst = newFirst.next;
         }
     }
 }

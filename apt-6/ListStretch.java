@@ -1,3 +1,5 @@
+import resources.ListNode;
+
 public class ListStretch {
     public ListNode stretch(ListNode list, int amount) {
         ListNode currNode = list;
