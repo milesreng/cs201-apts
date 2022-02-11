@@ -1,3 +1,5 @@
+import resources.ListNode;
+
 public class DoubleList {
     public ListNode bigify(ListNode list) {
         ListNode first = list;
