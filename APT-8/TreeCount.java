@@ -1,3 +1,5 @@
+import resources.TreeNode;
+
 public class TreeCount {
     public int count(TreeNode tree) {
         // replace with working code
